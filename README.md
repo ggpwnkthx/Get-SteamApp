@@ -13,5 +13,5 @@
     Get-SteamApp | Where -Property Name -EQ "Risk of Rain 2"
 
 ## Install Directory to Variable
-    $ror2_dir = (Get-SteamApp | Where -Property AppID -EQ 632360).InstallDir
-    $ror2_dir = (Get-SteamApp | Where -Property Name -EQ "Risk of Rain 2").InstallDir
+    $ror2_dir = (Get-SteamApp | Where AppID -EQ 632360).InstallDir
+    $ror2_dir = (Get-SteamApp | Where Name -EQ "Risk of Rain 2").InstallDir
