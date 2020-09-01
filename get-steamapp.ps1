@@ -1,8 +1,8 @@
 function Get-SteamApp {
     $steam_install_paths = @()
     $steam_install_paths += (Get-ItemProperty -Path HKLM:SOFTWARE\WOW6432Node\Valve\Steam).InstallPath
-    $lib_path="\steamapps\libraryfolders.vdf"
-    if (Test-Path -Path $steam_install_paths$lib_path) {
+    $lib_path="$steam_install_paths\steamapps\libraryfolders.vdf"
+    if (Test-Path -Path $lib_path) {
         $data = Get-Content -Raw -Path $steam_path$lib_path
         $steam_install_paths += ($data | Select-String -Pattern '"[0-9].*"\t\t"(.*)"' -AllMatches).Matches | foreach {$_.Groups[1].Value.Replace('\\', '\')}
     }
