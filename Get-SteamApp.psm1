@@ -14,7 +14,7 @@ function Get-SteamApp {
             $app_info = New-Object PSObject -Property @{
                 AppID = [int]($data | Select-String -Pattern '.*"appid"\t\t"(.*)"').Matches.Groups[1].ToString()
                 Name = [string]($data | Select-String -Pattern '.*"name"\t\t"(.*)"').Matches.Groups[1].ToString()
-                InstallDir = [string]($sip+"\steamapps\"+($data | Select-String -Pattern '.*"installdir"\t\t"(.*)"').Matches.Groups[1].ToString())
+                InstallDir = [string]($sip+"\steamapps\common\"+($data | Select-String -Pattern '.*"installdir"\t\t"(.*)"').Matches.Groups[1].ToString())
             }
             $app_info
         }
