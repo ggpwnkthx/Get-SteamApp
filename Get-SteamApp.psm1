@@ -20,3 +20,4 @@ function Get-SteamApp {
         }
     }
 }
+Export-ModuleMember -Function Get-SteamApp
